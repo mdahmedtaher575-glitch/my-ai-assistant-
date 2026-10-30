@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT X AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:white;font-family:Arial,sans-serif}
+header{padding:22px;text-align:center;border-bottom:1px solid #26334d}
+h1{color:#69baff;margin:0}
+main{max-width:750px;margin:auto;padding:20px}
+#chat{height:60vh;overflow:auto;background:#111a2d;padding:15px;border-radius:15px}
+.msg{padding:12px;margin:10px 0;border-radius:12px;line-height:1.6}
+.user{background:#174d80;text-align:right}
+.bot{background:#25334b}
+form{display:flex;gap:8px;margin-top:15px}
+input{flex:1;min-width:0;padding:14px;border-radius:10px;border:0;font-size:16px}
+button{background:#1689e8;color:white;border:0;padding:13px 18px;border-radius:10px}
+small{color:#aabbd2}
+</style>
+</head>
+<body>
+<header>
+<h1>PROJECT X AI</h1>
+<small>Your own AI journey starts here</small>
+</header>
+<main>
+<div id="chat">
+<div class="msg bot">স্বাগতম! আমি PROJECT X। আমার AI Brain এখনো সংযুক্ত হয়নি। শিগগিরই দেখা হবে!</div>
+</div>
+<form id="form">
+<input id="message" placeholder="তোমার মেসেজ লেখো..." autocomplete="off">
+<button>Send</button>
+</form>
+</main>
+<script>
+const form=document.getElementById('form');
+const input=document.getElementById('message');
+const chat=document.getElementById('chat');
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const value=input.value.trim();
+if(!value)return;
+const msg=document.createElement('div');
+msg.className='msg user';
+msg.textContent=value;
+chat.appendChild(msg);
+input.value='';
+chat.scrollTop=chat.scrollHeight;
+});
+</script>
+</body>
+</html>
